@@ -6,7 +6,7 @@
 #    By: mhwangbo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/19 16:14:40 by mhwangbo          #+#    #+#              #
-#    Updated: 2018/03/05 01:53:40 by mhwangbo         ###   ########.fr        #
+#    Updated: 2018/03/05 18:03:48 by mhwangbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,12 @@ FILES	=	ft_atoi.c \
 			ft_isdigit.c \
 			ft_isprint.c \
 			ft_itoa.c \
+			ft_lstadd.c \
+			ft_lstiter.c \
+			ft_lstmap.c \
+			ft_lstdel.c \
+			ft_lstdelone.c \
+			ft_lstnew.c \
 			ft_memalloc.c \
 			ft_memccpy.c \
 			ft_memchr.c \
