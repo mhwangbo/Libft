@@ -75,7 +75,7 @@ FILES	=	ft_atoi.c \
 			ft_toupper.c \
 			ft_wordcount.c \
 			ft_wordlen.c \
-			integerlen.c 
+			integerlen.c \
 
 OBJ		=	$(FILES:.c=.o)
 HEADER	=	libft.h
