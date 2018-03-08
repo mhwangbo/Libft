@@ -78,11 +78,9 @@ FILES	=	ft_atoi.c \
 			integerlen.c \
 
 OBJ		=	$(FILES:.c=.o)
-HEADER	=	libft.h
-OPTION	=	-c -I $(HEADER)
 
 $(NAME):
-			gcc $(CFLAG) $(OPTION) $(FILES)
+			gcc $(CFLAG) -c $(FILES)
 			ar rc $(NAME) $(OBJ)
 			ranlib $(NAME)
 
