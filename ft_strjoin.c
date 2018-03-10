@@ -3,29 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myoung <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: mhwangbo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/24 18:30:25 by myoung            #+#    #+#             */
-/*   Updated: 2016/10/19 15:32:34 by myoung           ###   ########.fr       */
+/*   Created: 2018/03/04 22:51:33 by mhwangbo          #+#    #+#             */
+/*   Updated: 2018/03/10 13:55:36 by mhwangbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned int	l1;
-	unsigned int	l2;
-	char			*new;
+	int		len;
+	int		i;
+	char	*join;
 
 	if (!s1 || !s2)
 		return (NULL);
-	l1 = ft_strlen(s1);
-	l2 = ft_strlen(s2);
-	new = ft_strnew(l1 + l2);
-	if (!new)
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	join = ft_strnew(len);
+	if (!join)
 		return (NULL);
-	ft_strcpy(new, s1);
-	ft_strcat(new, s2);
-	return (new);
+	i = 0;
+	while (*s1)
+		join[i++] = *s1++;
+	while (*s2)
+		join[i++] = *s2++;
+	join[i] = '\0';
+	return (join);
 }

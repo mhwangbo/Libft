@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: myoung <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: mhwangbo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/24 14:06:51 by myoung            #+#    #+#             */
-/*   Updated: 2016/10/19 15:32:27 by myoung           ###   ########.fr       */
+/*   Created: 2018/02/26 17:33:45 by mhwangbo          #+#    #+#             */
+/*   Updated: 2018/03/09 23:27:24 by mhwangbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int nb, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int truncate;
-	int called;
-
-	called = 0;
-	truncate = 1000000000;
-	if (nb < 0)
+	if ((n > 2147483647) || (n < -2147483648))
+		return ;
+	if (n == -2147483648)
+	{
+		ft_putstr_fd("-2147483648", fd);
+		return ;
+	}
+	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		if (nb == -2147483648)
-		{
-			ft_putchar_fd('2', fd);
-			nb %= 1000000000;
-		}
-		nb *= -1;
+		n *= -1;
 	}
-	while (truncate > 0)
+	if ((n >= -2147483648) && (n <= 2147483647))
 	{
-		if ((nb / truncate) != 0 || called == 1 || (nb == 0 && truncate == 1))
+		if (n < 10)
 		{
-			called = 1;
-			ft_putchar_fd((nb / truncate) + '0', fd);
+			ft_putchar_fd((n + '0'), fd);
+			return ;
 		}
-		nb %= truncate;
-		truncate /= 10;
+		ft_putnbr_fd((n / 10), fd);
+		ft_putchar_fd(((n % 10) + '0'), fd);
 	}
 }
