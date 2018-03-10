@@ -6,7 +6,7 @@
 /*   By: mhwangbo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 17:38:41 by mhwangbo          #+#    #+#             */
-/*   Updated: 2018/03/10 14:37:00 by mhwangbo         ###   ########.fr       */
+/*   Updated: 2018/03/10 14:38:13 by mhwangbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ char	**ft_strsplit(char const *s, char c)
 	if (!split)
 		return (NULL);
 	while (s[i] != '\0')
-	{
 		if (s[i] != c)
 		{
 			h = 0;
@@ -38,7 +37,6 @@ char	**ft_strsplit(char const *s, char c)
 		}
 		else
 			i++;
-	}
 	split[j] = NULL;
 	return (split);
 }
