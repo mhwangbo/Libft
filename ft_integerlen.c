@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   integerlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhwangbo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/04 22:57:56 by mhwangbo          #+#    #+#             */
-/*   Updated: 2018/03/09 22:21:25 by mhwangbo         ###   ########.fr       */
+/*   Created: 2018/02/26 16:31:27 by mhwangbo          #+#    #+#             */
+/*   Updated: 2018/03/09 23:10:18 by mhwangbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+size_t		ft_integerlen(int n)
 {
-	char	*mem;
+	size_t	l;
 
-	mem = (char*)malloc(sizeof(char) * size + 1);
-	if (mem == NULL)
-		return (NULL);
-	ft_memset(mem, (int)'\0', size + 1);
-	return (mem);
+	l = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		l++;
+	while (n)
+	{
+		n = n / 10;
+		l++;
+	}
+	return (l);
 }

@@ -6,7 +6,7 @@
 #    By: mhwangbo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/19 16:14:40 by mhwangbo          #+#    #+#              #
-#    Updated: 2018/03/05 18:03:48 by mhwangbo         ###   ########.fr        #
+#    Updated: 2018/03/09 23:06:55 by mhwangbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,13 +75,11 @@ FILES	=	ft_atoi.c \
 			ft_toupper.c \
 			ft_wordcount.c \
 			ft_wordlen.c \
-			integerlen.c \
+			ft_integerlen.c 
 
 OBJ		=	$(FILES:.c=.o)
-
-HEADER		=	libft.h
-
-OPTION		=	-c -I $(HEADER)
+HEADER	=	libft.h
+OPTION	=	-c -I $(HEADER)
 
 $(NAME):
 			gcc $(CFLAG) $(OPTION) $(FILES)

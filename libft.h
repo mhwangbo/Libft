@@ -6,7 +6,7 @@
 /*   By: mhwangbo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 18:17:53 by mhwangbo          #+#    #+#             */
-/*   Updated: 2018/03/06 00:03:41 by mhwangbo         ###   ########.fr       */
+/*   Updated: 2018/03/09 23:10:53 by mhwangbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int				ft_tolower(int c);
 int				ft_toupper(int c);
 int				ft_wordcount(char const *s, char c);
 int				ft_wordlen(char const *s, char c);
-size_t			intlen(int n);
+size_t			ft_integerlen(int n);
 t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void*, size_t));
