@@ -3,38 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhwangbo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: myoung <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/26 00:09:52 by mhwangbo          #+#    #+#             */
-/*   Updated: 2018/03/09 23:10:29 by mhwangbo         ###   ########.fr       */
+/*   Created: 2016/09/24 19:50:21 by myoung            #+#    #+#             */
+/*   Updated: 2016/10/19 15:32:26 by myoung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
-	size_t	i;
-	size_t	len;
-	char	*str;
+	char	*digits;
+	char	*result;
+	int		nlen;
+	int		i;
 
-	i = 0;
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	len = ft_integerlen(n);
-	str = (char*)malloc(sizeof(char) * (len + 1));
-	if (!str)
+	digits = ft_strdup("0123456789");
+	if (n == -2147483648 || n == 0)
+		return (n ? ft_strdup("-2147483648") : ft_strdup("0"));
+	nlen = ft_nlen(n);
+	result = n < 0 ? ft_strnew(nlen + 1) : ft_strnew(nlen);
+	if (!result)
 		return (NULL);
-	str[len] = 0;
-	if (n < 0)
+	result[nlen] = n < 0 ? '-' : 0;
+	n = n < 0 ? -n : n;
+	i = result[0] == '-' ? 1 : 0;
+	while (n)
 	{
-		str[i++] = '-';
-		n = n * -1;
+		result[i] = digits[n % 10];
+		n /= 10;
+		i++;
 	}
-	while (i < len)
-	{
-		str[--len] = (n % 10) + '0';
-		n = n / 10;
-	}
-	return (str);
+	result = ft_strrev(result);
+	return (result);
 }
