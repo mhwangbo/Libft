@@ -6,36 +6,24 @@
 /*   By: mhwangbo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/25 23:42:20 by mhwangbo          #+#    #+#             */
-/*   Updated: 2018/03/10 15:15:39 by mhwangbo         ###   ########.fr       */
+/*   Updated: 2018/03/04 23:13:37 by mhwangbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_wordcount(char const *str, char c)
+int		ft_wordcount(char const *s, char c)
 {
-	int word_count;
 	int i;
-	int has_word;
+	int j;
 
-	if (!str || !c)
-		return (0);
 	i = 0;
-	word_count = 0;
-	while (str[i] != '\0')
+	j = 0;
+	while (s[i] != '\0')
 	{
-		has_word = 0;
-		while (c == str[i] && str[i])
-			i++;
-		while (c != str[i] && str[i])
-		{
-			has_word = 1;
-			i++;
-		}
-		while (c == str[i] && str[i])
-			i++;
-		if (has_word == 1)
-			word_count++;
+		if ((s[i - 1] == '\0' || s[i - 1] == c) && (s[i] != c))
+			j++;
+		i++;
 	}
-	return (word_count);
+	return (j);
 }
