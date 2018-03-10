@@ -3,29 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhwangbo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: myoung <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/04 23:10:35 by mhwangbo          #+#    #+#             */
-/*   Updated: 2018/03/04 23:10:41 by mhwangbo         ###   ########.fr       */
+/*   Created: 2016/09/24 18:22:32 by myoung            #+#    #+#             */
+/*   Updated: 2016/12/22 07:04:52 by myoung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+** if the string is null return null
+** make a new string the size of len, with ft_stnew
+** check and make sure it worked.
+** i = 0
+** iterate while i < len
+**  set the postition i in new to the start + i of the str
+**  itterate i
+**
+**  return the new str you made
+*/
+
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char	*str;
-	size_t	i;
+	char			*new;
+	unsigned int	i;
 
+	if (!s)
+		return (NULL);
+	new = ft_strnew(len);
 	i = 0;
-	str = (char*)malloc(sizeof(char) * len + 1);
-	if (!s || !str)
+	if (!new)
 		return (NULL);
 	while (i < len)
 	{
-		str[i] = s[start + i];
+		new[i] = s[start + i];
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	return (new);
 }
